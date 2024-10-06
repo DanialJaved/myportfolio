@@ -15,12 +15,12 @@
   }
   
   /* ================================= */
-  /* ACRYLIC/TRANSPARENCY HEADER */
-  /* ================================= */
-  header {
-    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+/* ACRYLIC/TRANSPARENCY HEADER */
+/* ================================= */
+header {
+    background: rgba(255, 255, 255, 0.8); /* Slightly more opaque for better contrast */
     backdrop-filter: blur(10px); /* Acrylic/Glass effect */
-    color: #fff;
+    color: #333; /* Darker font color for better legibility */
     padding: 1rem 2rem;
     position: fixed;
     width: 100%;
@@ -29,22 +29,19 @@
     transition: all 0.3s ease-in-out;
   }
   
-  header.scrolled {
-    background: rgba(51, 51, 51, 0.8); /* Slightly darker when scrolling */
-    backdrop-filter: blur(15px);
-  }
-  
   /* Navigation Links */
   .nav-links {
     list-style: none;
     display: flex;
     justify-content: space-around;
+    position: relative; /* To position the indicator bar */
   }
   
   .nav-links a {
-    color: #fff;
+    color: #333; /* Dark color for text */
     text-decoration: none;
     font-weight: 600;
+    padding: 0.5rem; /* Padding for clickable area */
     transition: color 0.3s ease;
   }
   
@@ -52,10 +49,20 @@
     color: #007bff; /* Change color on hover */
   }
   
-  /* ================================= */
-  /* HAMBURGER MENU FOR MOBILE */
-  /* ================================= */
-  .hamburger {
+  /* Indicator Bar */
+.nav-links .indicator {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* Slightly below the nav links */
+    left: 0; /* Start from the left */
+    height: 4px; /* Height of the indicator bar */
+    background-color: #007bff; /* Blue color for the indicator */
+    transition: left 0.3s ease, width 0.3s ease; /* Smooth transition for position and width */
+  }
+  
+  
+  /* Hamburger Menu Styles */
+.hamburger {
     display: none;
     cursor: pointer;
     font-size: 1.5rem;
@@ -63,9 +70,10 @@
   
   @media (max-width: 768px) {
     .nav-links {
-      display: none;
+      display: none; /* Hide the nav links by default */
       flex-direction: column;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(255, 255, 255, 0.8); /* Slightly more opaque for better contrast */
+      backdrop-filter: blur(10px);
       position: fixed;
       top: 0;
       right: 0;
@@ -79,72 +87,107 @@
   
     .nav-links.active {
       transform: translateX(0); /* Slide in when active */
-    }
-  
-    .nav-links li {
-      margin: 1rem 0;
+      display: flex; /* Show as flex */
     }
   
     .hamburger {
-      display: block;
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-    }
-  
-    header.scrolled .hamburger {
-      color: #fff;
+      display: block; /* Show hamburger icon on mobile */
     }
   }
   
-  /* ================================= */
-  /* HERO SECTION */
-  /* ================================= */
-  #hero {
-    background: url('img/hero-background.jpg') no-repeat center center/cover;
-    height: 100vh;
+  
+  /* Hero Section Styles */
+#hero {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 2rem; /* Add some padding */
+    background-color: #ddd;
+    /* background: url('img/hero-bg.jpg') no-repeat center center/cover; /* Background image */
+    
+    height: 100vh; /* Full viewport height */
   }
   
-  .hero-content h1 {
-    font-size: 3rem;
-    color: #fff;
-    opacity: 0;
-    animation: fadeIn 2s forwards ease-in-out;
+  /* Overlay for better text visibility */
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ensure it sits below content */
   }
   
-  .hero-content p {
-    font-size: 1.5rem;
-    color: #ddd;
-    opacity: 0;
-    animation: fadeIn 2.5s forwards ease-in-out;
+  /* Profile Photo Styles */
+  .profile-photo {
+    width: 250px; /* Adjusted width */
+    height: 250px; /* Adjusted height */
+    border-radius: 50%; /* Make it circular */
+    margin-right: 20px; /* Space between the photo and text */
+    object-fit: cover; /* Cover the space without distortion */
+    z-index: 2; /* Bring image above overlay */
+    transition: transform 0.3s ease; /* Smooth hover effect */
   }
   
+  .profile-photo:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+  
+  /* Hero Text Styles */
+  .hero-text {
+    /* max-width: 600px; /* Limit width of text */
+    color: white; /* Text color */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2; /* Bring text above overlay */
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(90deg, #007bff, #ffffff); /* Blue to white gradient */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Fill the text with the background */
+    animation: fadeIn 1s ease forwards; /* Fade-in animation */
+  
+}
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* CTA Button Styles */
   .cta-btn {
     display: inline-block;
     padding: 1rem 2rem;
-    background: #007bff;
-    color: #fff;
-    text-decoration: none;
+    background: #007bff; /* Button background color */
+    color: white; /* Text color */
+    text-decoration: none; /* No underline */
     margin-top: 1rem;
-    opacity: 0;
-    animation: fadeIn 3s forwards ease-in-out;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth background transition */
   }
   
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
+  .cta-btn:hover {
+    background: #0056b3; /* Darker shade on hover */
   }
+  
   
   /* ================================= */
   /* SECTION STYLES */
   /* ================================= */
   .section {
     padding: 4rem 2rem;
+    
     text-align: center;
     min-height: 80vh;
     opacity: 0;
@@ -161,45 +204,109 @@
     margin-bottom: 2rem;
   }
   
-  /* ================================= */
-  /* PROJECT SECTION WITH IMAGE */
-  /* ================================= */
+/* About Section Styles */
+.about-section {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 4rem 2rem; /* Padding for the section */
+  }
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns: heading (1/3) and text (2/3) */
+    align-items: center; /* Align heading and text vertically */
+    gap: 20px; /* Space between heading and text */
+  }
+  
+  .about-heading {
+    text-align: center; /* Left-align the heading */
+  }
+  
+  .about-text {
+    text-align: left; /* Left-align the text */
+    max-width: 700px; /* Optional max width for text block */
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(90deg, #007bff, #ffffff); /* Blue to white gradient */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Fill the text with the background */
+  }
+  
+  
+/* Projects Section Styles */
+.projects-section {
+    padding: 4rem 2rem;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two projects per row */
+    gap: 20px; /* Space between project items */
+    margin-top: 2rem;
+  }
+  
   .project-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 0;
     position: relative;
     overflow: hidden;
+    border-radius: 10px; /* Rounded corners */
   }
   
   .project-item img {
     width: 100%;
-    max-width: 500px;
-    border-radius: 15px;
-    transition: transform 0.5s ease;
+    height: 100%;
+    object-fit: cover; /* Cover the space without distorting the image */
+    transition: transform 0.5s ease; /* Smooth zoom effect */
   }
   
-  .project-item:hover img {
-    transform: scale(1.1); /* Zoom-in effect */
-  }
-  
-  .project-info {
+  /* Overlay for project details */
+  .project-overlay {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    top: 0; /* Align text to the top */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text contrast */
+    color: white;
+    padding: 20px;
+    transition: background 0.3s ease; /* Smooth gradient transition on hover */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensure text stays at the top */
   }
   
-  .project-item:hover .project-info {
-    opacity: 1;
+  .project-item:hover .project-overlay {
+    background: linear-gradient(180deg, rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0)); /* Blue gradient on hover */
   }
   
+  .project-overlay h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .project-overlay p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  /* Explore More Button Styles */
+  .explore-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: auto; /* Position button below text */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .explore-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slight grow effect on hover */
+  }
+
   /* ================================= */
   /* SKILLS GRID */
   /* ================================= */
@@ -250,15 +357,68 @@
     background: #0056b3;
   }
   
-  /* ================================= */
-  /* FOOTER */
-  /* ================================= */
-  footer {
-    text-align: center;
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    background-color: #007bff; /* Background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding */
+    font-size: 18px; /* Font size */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* No underline */
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Ensure it appears above other elements */
+    transition: opacity 0.3s ease; /* Smooth appearance */
   }
+  
+  .back-to-top:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  /* Show button when scrolling down */
+  .back-to-top.show {
+    display: block; /* Show the button */
+    opacity: 1; /* Fully opaque */
+  }
+  
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 0;
+    position: relative;
+  }
+  
+  footer p {
+    margin-top: 1rem;
+  }
+  
+  /* Social Media Links in Footer */
+  footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between icons */
+    margin-bottom: 1rem;
+  }
+  
+  footer .social-links a {
+    text-decoration: none; /* No underline */
+    color: #007bff; /* Social media icon color */
+    font-size: 1rem; /* Icon size */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  footer .social-links a:hover {
+    color: #0056b3; /* Darker color on hover */
+  }
+  
   
   /* ================================= */
   /* MEDIA QUERIES FOR MOBILE */
@@ -318,6 +478,12 @@
   
     .skill-item {
       margin-bottom: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr; /* Display projects in a single column on small screens */
     }
   }
   
