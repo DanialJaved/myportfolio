@@ -95,18 +95,17 @@ header {
     }
   }
   
-  
+
   /* Hero Section Styles */
 #hero {
-    position: relative;
+    position:relative ;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 2rem; /* Add some padding */
-    background-color: #ddd;
-    /* background: url('img/hero-bg.jpg') no-repeat center center/cover; /* Background image */
-    
+    background-color:#fff;
+    background: url('hero-bg.jpg') no-repeat center center/cover; /* Background image */
     height: 100vh; /* Full viewport height */
   }
   
@@ -137,7 +136,7 @@ header {
   
   /* Hero Text Styles */
   .hero-text {
-    /* max-width: 600px; /* Limit width of text */
+    max-width: 600px; /* Limit width of text */
     color: white; /* Text color */
     justify-content: center;
     align-items: center;
@@ -174,11 +173,12 @@ header {
     text-decoration: none; /* No underline */
     margin-top: 1rem;
     border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth background transition */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth background transition */
   }
   
   .cta-btn:hover {
     background: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05);
   }
   
   
@@ -326,36 +326,42 @@ header {
     text-align: center;
   }
   
-  /* ================================= */
-  /* CONTACT FORM */
-  /* ================================= */
-  form {
+/* Social Media Links Section */
+.social-media-section {
+    padding: 4rem 2rem;
+    text-align: center; /* Center align title */
+  }
+  
+  .social-links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Create a 2x2 grid */
+    gap: 20px; /* Space between grid items */
+    margin-top: 20px; /* Space above the grid */
+  }
+  
+  .social-link {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 400px;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff; /* Default background color */
+    color: white; /* Text color */
+    text-decoration: none; /* No underline */
+    padding: 20px; /* Padding for each link */
+    border-radius: 10px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    font-size: 1.2rem; /* Font size */
   }
   
-  form input, form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+  .social-link:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-5px); /* Slight lift effect on hover */
   }
   
-  form button {
-    padding: 1rem;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  /* Icon styles */
+  .social-link i {
+    margin-right: 10px; /* Space between icon and text */
   }
-  
-  form button:hover {
-    background: #0056b3;
-  }
+   
   
 
 /* Back to Top Button */
@@ -392,31 +398,8 @@ footer {
     text-align: center;
     background-color: #333;
     color: #fff;
-    padding: 2rem 0;
+    padding: 1.2rem;
     position: relative;
-  }
-  
-  footer p {
-    margin-top: 1rem;
-  }
-  
-  /* Social Media Links in Footer */
-  footer .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between icons */
-    margin-bottom: 1rem;
-  }
-  
-  footer .social-links a {
-    text-decoration: none; /* No underline */
-    color: #007bff; /* Social media icon color */
-    font-size: 1rem; /* Icon size */
-    transition: color 0.3s ease; /* Smooth color transition */
-  }
-  
-  footer .social-links a:hover {
-    color: #0056b3; /* Darker color on hover */
   }
   
   
@@ -481,6 +464,23 @@ footer {
     }
   }
   
+  @media (max-width: 768px) {
+    .about-content {
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+      text-align: center; /* Center-align the text and button */
+    }
+  
+    .about-heading {
+      order: -1; /* Move the heading above the text */
+      margin-bottom: 20px;
+    }
+  
+    .about-text {
+      order: 1; /* Ensure paragraph is below the heading */
+    }
+  }
+
   @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr; /* Display projects in a single column on small screens */
