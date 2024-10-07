@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Muhammad Danial Javed - Mechanical Engineer</title>
+  <!-- Favicon --><link rel="icon" type="image/png" href="img/favicon.png"> <!-- or .ico -->
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <!-- Navigation -->
@@ -51,6 +54,7 @@
           to create impactful projects. Whether it's through mechanical design, simulation, or research, 
           I strive to push the boundaries of what's possible.
         </p>
+        <br>
         <p>
           My journey in engineering has been guided by a commitment to excellence and a drive to innovate. 
           I am dedicated to finding solutions that are not only effective but also environmentally friendly. 
@@ -64,7 +68,7 @@
 
   <!-- Education Section -->
   <section id="education" class="section">
-    <h2 class="gradient-text">Education</h2>
+    <h2 class="gradient-text">Educational Background</h2>
     <div class="timeline">
       <div class="timeline-item">
         <h3>University of Engineering and Technology, Lahore</h3>
@@ -77,25 +81,45 @@
     </div>
   </section>
 
-  <!-- Experience Section -->
-  <section id="experience" class="section">
-    <h2 class="gradient-text">Experience</h2>
+<!-- Work Experience Section -->
+<section id="experience" class="section experience-section">
+  <h2 class="gradient-text">Work Experience</h2>
+
+  <div class="experience-grid">
+    <!-- Job 1 -->
     <div class="experience-item">
-      <h3>Pak-Arab Refinery Limited (PARCO)</h3>
-      <p>Trainee Engineer – Maintenance</p>
-      <ul>
-        <li>Executed maintenance & modification jobs...</li>
-        <li>Worked with SAP S/4 HANA...</li>
-      </ul>
+      <div class="company-logo">
+        <img src="parco-logo.png" alt="Company 1 Logo" class="logo-img">
+      </div>
+      <div class="experience-details">
+        <h3>Pak-Arab Refinery Limited (PARCO)</h3>
+        <p>Trainee Engineer – Maintenance</p>
+        <ul>
+          <li>Executed maintenance & modification jobs on oil pipeline facilities.</li>
+          <li>Improved overall system efficiency by 15%.</li>
+        </ul>
+        <canvas id="chart1" class="experience-chart"></canvas>
+      </div>
     </div>
+
+    <!-- Job 2 -->
     <div class="experience-item">
-      <h3>Diamond Denim by Sapphire</h3>
-      <p>Management Trainee Officer – Mechanical Maintenance</p>
-      <ul>
-        <li>Lead a team of 16 technicians for troubleshooting...</li>
-      </ul>
+      <div class="company-logo">
+        <img src="sapphire-logo.webp" alt="Company 2 Logo" class="logo-img">
+      </div>
+      <div class="experience-details">
+        <h3>Diamond Denim by Sapphire</h3>
+        <p>Management Trainee Officer – Mechanical Maintenance</p>
+        <ul>
+          <li>Led a team of 16 technicians for troubleshooting and maintenance.</li>
+          <li>Increased system uptime by 20%.</li>
+        </ul>
+        <canvas id="chart2" class="experience-chart"></canvas>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 <!-- Projects Section -->
 <section id="projects" class="section projects-section">
@@ -146,17 +170,78 @@
       </div>
   </section>
   
+<!-- Skills Section -->
+<section id="skills" class="section skills-section">
+  <h2 class="gradient-text">My Skills</h2>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <h2 class="gradient-text">Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-item">SolidWorks</div>
-      <div class="skill-item">MATLAB</div>
-      <div class="skill-item">Python</div>
-      <div class="skill-item">AutoCAD</div>
+  <div class="skills-grid">
+    <!-- Mechanical Skills -->
+    <div class="skills-category">
+      <h3>Mechanical</h3>
+      <div class="skill">
+        <i class="fa-solid fa-cube"></i>
+        <span class="skill-name">SolidWorks/Solid Edge (3D & 2D CAD)</span>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-compass-drafting"></i>
+        <span class="skill-name">AutoCAD (2D CAD)</span>
+      </div>
+    
     </div>
-  </section>
+
+    <!-- Analysis & Simulations -->
+    <div class="skills-category">
+      <h3>Analysis & Simulations</h3>
+      <div class="skill">
+        <i class="fa-solid fa-calculator"></i>
+        <span class="skill-name">MATLAB (Progrmaing, Signal Processing, Vibration Analysis)</span>
+      </div>
+      <div class="skill">
+        <i class="fas fa-cogs"></i>
+        <span class="skill-name">ANSYS (Structural, Modal, Thermal Analysis, Topology Optimization, Parametric Optimization</span>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-chart-line"></i>
+        <span class="skill-name">Abaqus (Structural, Modal, Thermal Analysis, Topology Optimization)</span>
+      </div>
+    </div>
+
+    <!-- Other Tools -->
+    <div class="skills-category">
+      <h3>Other Tools</h3>
+      <div class="skill">
+        <i class="fab fa-python"></i>
+        <span class="skill-name">Python (Programming, ML, Data Visualization)</span>
+      </div>
+      <div class="skill">
+        <i class="fas fa-chart-line"></i>
+        <span class="skill-name">Hourly Analysis Program (HAP)</span>
+      </div>
+      <div class="skill">
+        <i class="fas fa-solar-panel"></i>
+        <span class="skill-name">PV Syst</span>
+      </div>
+    </div>
+
+    <!-- Productivity Tools -->
+    <div class="skills-category">
+      <h3>Productivity</h3>
+      <div class="skill">
+        <i class="fa-solid fa-briefcase"></i>
+        <span class="skill-name">Microsoft Office (Word, Excel, PowerPoint, PowerBI, Power Automate, Outlook</span>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-palette"></i>
+        <span class="skill-name">Canva and Adobe Creaive Suite for Media Ediiting</span>
+      </div>
+      <div class="skill">
+        <i class="fas fa-code"></i>
+        <span class="skill-name">HTML/CSS (Web Developing, including this website)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
   
 <!-- Social Media Links Section -->
 <section id="social-media" class="section social-media-section">
@@ -169,10 +254,10 @@
         <i class="fab fa-facebook"></i> Facebook
       </a>
       <a href="https://www.instagram.com/mdanialjaved/profilecard/?igsh=MXV5Nm9hdHhiMW1xOQ==" target="_blank" class="social-link instagram">
-        <i class="fab fa-instagram"></i> Instagram
+        <i class="fa-brands fa-instagram"></i> Instagram
       </a>
       <a href="https://x.com/DanialJavedK?s=09" target="_blank" class="social-link x">
-        <i class="fab fa-twitter"></i> Twitter
+        <i class="fa-brands fa-twitter"></i> Twitter
       </a>
     </div>
   </section>

@@ -14,6 +14,31 @@
     line-height: 1.6;
   }
   
+/* Heading Styles */
+h1 {
+    font-size: 3rem; /* Adjust the size of the h1 heading */
+    margin-bottom: 20px; /* Add space below the heading */
+    line-height: 1.2; /* Line height for better spacing */
+  }
+  
+  h2 {
+    font-size: 2.5rem; /* Adjust the size of the h2 heading */
+    margin-bottom: 15px; /* Add space below the heading */
+    line-height: 1.3; /* Line height for better spacing */
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem; /* Smaller size for h1 on mobile */
+    }
+  
+    h2 {
+      font-size: 2rem; /* Smaller size for h2 on mobile */
+    }
+  }
+  
+
   /* ================================= */
 /* ACRYLIC/TRANSPARENCY HEADER */
 /* ================================= */
@@ -22,6 +47,7 @@ header {
     backdrop-filter: blur(10px); /* Acrylic/Glass effect */
     color: #333; /* Darker font color for better legibility */
     padding: 1rem 2rem;
+    align-items: center;
     position: fixed;
     width: 100%;
     top: 0;
@@ -61,11 +87,11 @@ header {
   }
   
   
-  /* Hamburger Menu Styles */
+ /* Hamburger Menu Styles */
 .hamburger {
-    display: none;
+    display: none; /* Hide by default, show on mobile */
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Adjust size */
   }
   
   @media (max-width: 768px) {
@@ -136,7 +162,7 @@ header {
   
   /* Hero Text Styles */
   .hero-text {
-    max-width: 600px; /* Limit width of text */
+    /* max-width: 600px; /* Limit width of text */
     color: white; /* Text color */
     justify-content: center;
     align-items: center;
@@ -233,7 +259,55 @@ header {
     -webkit-text-fill-color: transparent; /* Fill the text with the background */
   }
   
-  
+/* Work Experience Section */
+.experience-section {
+  padding: 4rem 2rem;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for job experiences */
+  gap: 20px;
+}
+
+.experience-item {
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.experience-item:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.company-logo {
+  margin-right: 20px;
+}
+
+.logo-img {
+  width: 100px; /* Company logo size */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.experience-item:hover .logo-img {
+  transform: rotate(10deg); /* Logo rotates slightly on hover */
+}
+
+.experience-details {
+  flex-grow: 1;
+}
+
+.experience-chart {
+  margin-top: 20px;
+  width: 100%; /* Full-width chart */
+  height: 200px; /* Chart height */
+}
+
+
 /* Projects Section Styles */
 .projects-section {
     padding: 4rem 2rem;
@@ -307,24 +381,64 @@ header {
     transform: scale(1.05); /* Slight grow effect on hover */
   }
 
-  /* ================================= */
-  /* SKILLS GRID */
-  /* ================================= */
-  .skills-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .skill-item {
-    background: #007bff;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    margin: 10px;
-    min-width: 150px;
-    text-align: center;
-  }
+/* Skills Section */
+.skills-section {
+  padding: 4rem 2rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2-column grid */
+  gap: 40px;
+}
+
+.skills-category {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.skill i {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.skill .skill-name {
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+
+/* Tooltips */
+.skill::after {
+  content: attr(data-skill);
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  background: #333;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.skill:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
   
 /* Social Media Links Section */
 .social-media-section {
@@ -406,6 +520,32 @@ footer {
   /* ================================= */
   /* MEDIA QUERIES FOR MOBILE */
   /* ================================= */
+  
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block; /* Show hamburger on mobile */
+      margin-left: auto; /* Push it to the right */
+    }
+    
+    .nav-links {
+      display: none; /* Hide nav links by default on mobile */
+      flex-direction: column; /* Stack vertically */
+      position: absolute; /* Positioning */
+      top: 60px; /* Below the header */
+      right: 0; /* Align to the right */
+      background: rgba(255, 255, 255, 0.9); /* Background for the menu */
+      width: 200px; /* Width of the dropdown */
+      padding: 1rem; /* Padding */
+      border-radius: 5px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+      z-index: 50; /* Make sure it's above other content */
+    }
+  
+    .nav-links.active {
+      display: flex; /* Show when active */
+    }
+  } 
+  
   @media (max-width: 768px) {
     .nav-links {
       display: none;
@@ -478,6 +618,7 @@ footer {
   
     .about-text {
       order: 1; /* Ensure paragraph is below the heading */
+      text-align: center;
     }
   }
 
@@ -487,3 +628,27 @@ footer {
     }
   }
   
+  /* Print-Friendly Styles */
+@media print {
+  /* Start each section on a new page */
+  section {
+    page-break-before: always;
+  }
+
+  /* Avoid page break before the first section */
+  section:first-of-type {
+    page-break-before: auto;
+  }
+
+  /* Hide elements you don't want to print (e.g., navigation, buttons) */
+  nav, .cta-btn, .hamburger, .back-to-top {
+    display: none;
+  }
+
+  /* Ensure the layout is properly formatted for print */
+  body {
+    color: black; /* Use black text for printing */
+    background: white; /* Remove background colors or images */
+    font-size: 12pt; /* Adjust font size for print */
+  }
+}
