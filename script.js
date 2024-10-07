@@ -87,52 +87,6 @@ hamburger.addEventListener('click', () => {
   navLinksContainer.classList.toggle('active'); // Toggle the active class for the navigation menu
 });
 
-// Chart for Job 1 (Efficiency Improvement)
-const ctx1 = document.getElementById('chart1').getContext('2d');
-const chart1 = new Chart(ctx1, {
-  type: 'bar',
-  data: {
-    labels: ['Before', 'After'],
-    datasets: [{
-      label: 'Efficiency Improvement (%)',
-      data: [85, 100], // Adjust based on your data
-      backgroundColor: ['rgba(54, 162, 235, 0.6)', 'rgba(75, 192, 192, 0.6)'],
-      borderColor: ['rgba(54, 162, 235, 1)', 'rgba(75, 192, 192, 1)'],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
-
-// Chart for Job 2 (System Uptime Improvement)
-const ctx2 = document.getElementById('chart2').getContext('2d');
-const chart2 = new Chart(ctx2, {
-  type: 'line',
-  data: {
-    labels: ['Before', 'After'],
-    datasets: [{
-      label: 'System Uptime (%)',
-      data: [80, 100], // Adjust based on your data
-      backgroundColor: 'rgba(153, 102, 255, 0.6)',
-      borderColor: 'rgba(153, 102, 255, 1)',
-      fill: true,
-      borderWidth: 2
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
 
 
 // Back to Top Functionality
