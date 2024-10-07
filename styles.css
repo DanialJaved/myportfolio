@@ -538,7 +538,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text contrast */
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text contrast */
     color: white;
     padding: 20px;
     transition: background 0.3s ease; /* Smooth gradient transition on hover */
