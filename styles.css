@@ -230,7 +230,7 @@ header {
     margin-bottom: 2rem;
   }
   
-  
+
 /* About Section Styles */
 .about-section {
   background-color: #f8f9fa; /* Light background color */
@@ -255,7 +255,7 @@ header {
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(90deg, #007bff, #ffffff); /* Blue to white gradient */
+  background: linear-gradient(90deg, #007bff, #dce6f1); /* Blue to white gradient */
   -webkit-background-clip: text; /* Clip the background to the text */
   -webkit-text-fill-color: transparent; /* Fill the text with the background */
 }
@@ -275,7 +275,7 @@ header {
 .education-timeline {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr; /* Single-column layout */
+  grid-template-columns: 1fr; /* Single-column layout by default */
   gap: 40px;
 }
 
@@ -310,9 +310,6 @@ header {
   transition: transform 0.3s ease;
 }
 
-.timeline-item:hover .education-logo img {
-  transform: rotate(10deg);
-}
 
 .education-details {
   text-align: left;
@@ -337,7 +334,30 @@ header {
   font-weight: bold;
 }
 
-/* Timeline Styling */
+/* Explore More Button Styles */
+.edu-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: auto; /* Position button below text */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  position: absolute; /* Change to absolute positioning */
+  right: 5%; /* Align to the right of the education-details */
+  bottom: 0%; /* Vertically center */
+  transform: translateY(-50%); /* Adjust vertical centering */
+}
+
+.edu-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+
+/* Timeline Styling for Desktop */
 .education-timeline::before {
   content: '';
   position: absolute;
@@ -349,7 +369,6 @@ header {
   transform: translateX(-50%);
 }
 
-/* Left-aligned items */
 .timeline-item.left {
   justify-content: flex-end;
   align-self: flex-start;
@@ -368,7 +387,6 @@ header {
   transform: translateY(-50%);
 }
 
-/* Right-aligned items */
 .timeline-item.right {
   justify-content: flex-start;
   align-self: flex-end;
@@ -387,17 +405,17 @@ header {
   transform: translateY(-50%);
 }
 
-/* Responsive Adjustments */
+/* Remove timeline for mobile devices */
 @media (max-width: 768px) {
   .education-timeline {
-    grid-template-columns: 1fr; /* Single column on mobile */
+    grid-template-columns: 1fr; /* Single-column layout */
     margin: 0;
   }
 
   .timeline-item {
     width: 100%; /* Full width on mobile */
-    justify-content: center; /* Center align on mobile */
-    text-align: center; /* Center-align the text on mobile */
+    justify-content: center; /* Center-align items */
+    text-align: center; /* Center-align text */
     margin: 0; /* Remove margins */
     flex-direction: column; /* Stack logo and text vertically */
     padding: 20px;
@@ -407,6 +425,8 @@ header {
   .timeline-item.right {
     justify-content: center;
     align-self: center;
+    margin-left: 0; /* Remove left alignment on mobile */
+    margin-right: 0; /* Remove right alignment on mobile */
   }
 
   .education-logo {
@@ -418,15 +438,13 @@ header {
     text-align: center; /* Center-align text */
   }
 
-  /* Timeline adjustments for mobile */
-  .education-timeline::before {
-    left: 10px; /* Move timeline line to the left */
-  }
-
+  /* Remove timeline line and markers on mobile */
+  .education-timeline::before,
   .timeline-item::before {
-    left: 10px; /* Align timeline markers for mobile */
+    display: none;
   }
 }
+
 
 
 /* Work Experience Section */
